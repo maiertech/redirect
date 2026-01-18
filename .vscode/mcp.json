@@ -1,8 +1,13 @@
 {
 	"servers": {
-		"svelte": {
-			"url": "https://mcp.svelte.dev/mcp"
+		"Svelte": {
+			"url": "https://mcp.svelte.dev/mcp",
+			"type": "http"
+		},
+		"Railway": {
+			"type": "stdio",
+			"command": "npx",
+			"args": ["-y", "@railway/mcp-server"]
 		}
-	},
-	"inputs": []
+	}
 }
