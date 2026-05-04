@@ -2,6 +2,7 @@
 
 Configured redirects:
 
-| From           | To                 | Comment                                                    |
-| :------------- | :----------------- | :--------------------------------------------------------- |
-| www.maier.tech | https://maier.tech | Not possible in website repo because it uses prerendering. |
+| From           | To                 | Comment                                       |
+| :------------- | :----------------- | :-------------------------------------------- |
+| www.maier.tech | https://maier.tech | Redirect with path and querystring preserved. |
+| maier.social   | https://maier.tech | Redirect to site root.                        |
