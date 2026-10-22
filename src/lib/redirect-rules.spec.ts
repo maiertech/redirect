@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { allowedOrigins, resolveRedirect } from './redirect-rules.js';
+import { allowedOrigins, redirectRules, resolveRedirect } from './redirect-rules.js';
 
 describe('resolveRedirect', () => {
 	it('redirects www.maier.tech to maier.tech', () => {
@@ -34,5 +34,11 @@ describe('resolveRedirect', () => {
 describe('allowedOrigins', () => {
 	it('only allows the canonical origin', () => {
 		expect(allowedOrigins).toEqual(['https://maier.tech']);
+	});
+
+	it('covers the origin of every rule', () => {
+		for (const rule of redirectRules) {
+			expect(allowedOrigins).toContain(new URL(rule.target).origin);
+		}
 	});
 });

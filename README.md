@@ -5,15 +5,15 @@ host. It runs locally with the Node adapter.
 
 ## Redirect rules
 
-Rules live in [`src/lib/redirect-rules.ts`](src/lib/redirect-rules.ts) as a declarative table and
-are resolved by the `handle` hook in [`src/hooks.server.ts`](src/hooks.server.ts).
+Redirect Rules live in [`src/lib/redirect-rules.ts`](src/lib/redirect-rules.ts) as a declarative
+table and are resolved by the `handle` hook in [`src/hooks.server.ts`](src/hooks.server.ts).
 
-| From           | To                 | Path & query                     |
+| Source Host    | Canonical Origin   | Path & Query Preservation        |
 | :------------- | :----------------- | :------------------------------- |
 | www.maier.tech | https://maier.tech | preserved                        |
 | maier.social   | https://maier.tech | dropped (redirected to the root) |
 
-Requests for any other host get a `404 Not found` response.
+Requests for an Unknown Host get a `404 Not found` response.
 
 ## Requirements
 

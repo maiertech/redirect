@@ -22,12 +22,10 @@ export const redirectRules: readonly RedirectRule[] = [
 ];
 
 /**
- * The origins the app is allowed to redirect to. Derived from the rules so
- * that a rule can never redirect somewhere that is not allow-listed.
+ * The origins the app is allowed to redirect to. Kept separate from the rules on purpose: adding a
+ * rule must not silently widen what the app may redirect to.
  */
-export const allowedOrigins: readonly string[] = [
-	...new Set(redirectRules.map((rule) => new URL(rule.target).origin))
-];
+export const allowedOrigins: readonly string[] = ['https://maier.tech'];
 
 /**
  * Resolves the redirect target for a request.

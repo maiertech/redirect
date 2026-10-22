@@ -13,7 +13,7 @@ entry
 Redirect Rule is matched against. _Avoid_: Incoming host, Origin, Domain
 
 **Canonical Origin**: The single origin all traffic is redirected to, e.g. `https://maier.tech`. It
-is the target of every Redirect Rule. _Avoid_: Target, Destination, Redirect URL
+is the target of every Redirect Rule. _Avoid_: Destination, Redirect URL
 
 **Path & Query Preservation**: Keeping the path and query string of the original request when
 redirecting to the Canonical Origin. When preservation is off, the request is redirected to the root
