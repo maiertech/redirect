@@ -8,7 +8,6 @@ export default defineConfig({
 		expect: { requireAssertions: true },
 		projects: [
 			{
-				extends: './vite.config.ts',
 				test: {
 					name: 'server',
 					environment: 'node',
