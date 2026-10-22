@@ -1,15 +1,12 @@
-import { redirect, error } from '@sveltejs/kit';
-import type { Handle } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
+import type { Handle } from '@sveltejs/kit/hooks';
+import { allowedOrigins, resolveRedirect } from '#lib/redirect-rules.js';
 
 export const handle: Handle = async ({ event }) => {
-	// Redirect any path under maier.social to maier.tech (root).
-	if (event.url.hostname === 'maier.social') {
-		redirect(301, 'https://maier.tech/');
-	}
+	const location = resolveRedirect(event.url.hostname, event.url.pathname, event.url.search);
 
-	// Redirect www.maier.tech to maier.tech and preserve path and query parameters.
-	if (event.url.hostname === 'www.maier.tech') {
-		redirect(301, `https://maier.tech${event.url.pathname}${event.url.search}`);
+	if (location) {
+		redirect(301, location, { external: [...allowedOrigins] });
 	}
 
 	error(404, 'Not found.');

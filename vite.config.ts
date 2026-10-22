@@ -1,6 +1,20 @@
+import { defineConfig } from 'vitest/config';
+import adapter from '@sveltejs/adapter-node';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
 
 export default defineConfig({
-	plugins: [sveltekit()]
+	plugins: [sveltekit({ adapter: adapter() })],
+	test: {
+		expect: { requireAssertions: true },
+		projects: [
+			{
+				test: {
+					name: 'server',
+					environment: 'node',
+					include: ['src/**/*.test.{js,ts}'],
+					exclude: ['src/**/*.svelte.test.{js,ts}']
+				}
+			}
+		]
+	}
 });
