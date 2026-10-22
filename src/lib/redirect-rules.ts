@@ -17,7 +17,6 @@ export interface RedirectRule {
 
 /** All redirect rules, in the order they are evaluated. */
 export const redirectRules: readonly RedirectRule[] = [
-	{ host: 'maier.social', target: 'https://maier.tech', preservePath: false },
 	{ host: 'www.maier.tech', target: 'https://maier.tech', preservePath: true }
 ];
 
