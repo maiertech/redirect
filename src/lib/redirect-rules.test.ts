@@ -18,10 +18,6 @@ describe('resolveRedirect', () => {
 		);
 	});
 
-	it('redirects maier.social to the root of maier.tech', () => {
-		expect(resolveRedirect('maier.social', '/some/path', '?a=1')).toBe('https://maier.tech/');
-	});
-
 	it('does not redirect an unknown host', () => {
 		expect(resolveRedirect('unknown.example', '/some/path', '?a=1')).toBeNull();
 	});

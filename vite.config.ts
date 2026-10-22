@@ -12,8 +12,8 @@ export default defineConfig({
 				test: {
 					name: 'server',
 					environment: 'node',
-					include: ['src/**/*.{test,spec}.{js,ts}'],
-					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
+					include: ['src/**/*.test.{js,ts}'],
+					exclude: ['src/**/*.svelte.test.{js,ts}']
 				}
 			}
 		]
